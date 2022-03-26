@@ -1,0 +1,18 @@
+.info {
+    text-align: center;
+    color: #fff;
+    margin-top: 40px;
+}
+
+.info__city {
+    font-size: 24px;
+}
+
+.info__temp {
+    font-size: 56px;
+    padding-left: 15px;
+}
+
+.info__feels {
+    opacity: .6;
+}
