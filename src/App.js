@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Info from './components/Info/Info';
+import OtherInfo from './components/OtherInfo/OtherInfo';
 
 
 const API_KEY = '0a83a2dc2be5bb2659f228e1a7d5fa3e'
@@ -13,10 +14,15 @@ class App extends React.Component {
         city: undefined,
         feels_like: undefined,
         main: undefined,
+        wind: undefined,
+        pressure: undefined,
+        humidity: undefined,
     };
 
     getCurrentWeather = async (e) => {
         e.preventDefault();
+        
+        
         const city = e.target.elements.city.value;
         const apiUrl = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
         const data = await apiUrl.json();
@@ -27,6 +33,9 @@ class App extends React.Component {
             city: data.name,
             feels_like: data.main.feels_like,
             main: data.weather[0].main,
+            wind: data.wind.speed,
+            pressure: data.main.pressure,
+            humidity: data.main.humidity,
         })
     }
 
@@ -41,6 +50,11 @@ class App extends React.Component {
                     city={this.state.city}
                     feels_like={this.state.feels_like}
                     main={this.state.main}
+                />
+                <OtherInfo
+                    wind={this.state.wind}
+                    pressure={this.state.pressure}
+                    humidity={this.state.humidity} 
                 />
             </div>
         );
