@@ -30,4 +30,10 @@
 .header__btn {
     display: block;
     margin: 0 auto;
+    background-color: #4793FF;
+    border: none;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
 }
