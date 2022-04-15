@@ -15,6 +15,11 @@
 
 .other__info div span {
     display: block;
-    /* text-align: center; */
     padding-bottom: 10px;
+}
+
+@media (max-width: 481px) {
+    .other__info {
+        font-size: 16px;
+    }
 }

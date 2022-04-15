@@ -37,3 +37,18 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+@media (max-width: 481px) {
+    .logo {
+        width: 40px;
+        height: 40px;
+        margin: 0; 
+    }
+    .header__wrapper {
+        display: block;
+        text-align: center;
+    }
+    .header__title {
+        font-size: 24px;
+    }
+}
