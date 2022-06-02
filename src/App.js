@@ -5,7 +5,7 @@ import Info from './components/Info/Info';
 import OtherInfo from './components/OtherInfo/OtherInfo';
 
 
-const API_KEY = '0a83a2dc2be5bb2659f228e1a7d5fa3e'
+const API_KEY = 'b967db2f7084408fb6f185757220206&q'
 
 class App extends React.Component {
 
@@ -25,18 +25,18 @@ class App extends React.Component {
         const city = e.target.elements.city.value;
         
         if (city) {
-            const apiUrl = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
+            const apiUrl = await fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}=${city}&aqi=no`);
             const data = await apiUrl.json();
             console.log(data);
 
             this.setState({
-                temp: data.main.temp,
-                city: data.name,
-                feels_like: data.main.feels_like,
-                main: data.weather[0].main,
-                wind: data.wind.speed,
-                pressure: data.main.pressure,
-                humidity: data.main.humidity,
+                temp: data.current.temp_c,
+                city: data.location.name,
+                feels_like: data.current.feelslike_c,
+                main: data.current.condition.text,
+                wind: data.current.wind_kph,
+                pressure: data.current.pressure_mb,
+                humidity: data.current.humidity,
                 error: undefined,
             }) 
         } else {
@@ -48,7 +48,7 @@ class App extends React.Component {
                 wind: undefined,
                 pressure: undefined,
                 humidity: undefined,
-                error: 'Введите город',
+                error: 'Enter city!',
             }) 
         }
        
